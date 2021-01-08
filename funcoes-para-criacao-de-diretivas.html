@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas Personalizadas</title>    
+</head>
+<body>
+    <div id="diretives">       
+        <h4 v-upper>{{ name }}</h4>
+        <h2 v-capitalize>hello wolds {{ name }}</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>  
+        //Diretiva de maneira global
+        Vue.directive('upper', {
+            inserted(el) {
+                el.innerText = el.innerText.toUpperCase();
+            }
+        })
+
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+                name: 'Vue.Js'
+            },
+            //diretiva local
+            directives: {
+                capitalize: {
+
+                    bind(el) {
+                        console.log('BIND - O elemento vinculado')
+                    },
+
+                    inserted(el){
+                        console.log('INSERTED - O elemento foi inserido na página')
+                        let words = el.innerText.split(' ');
+
+                        words.forEach((text, index) => {
+                            //pegando a primeira letra colocando em maiuscula descartando e inserindo-a novamente
+                            words[index] = text.charAt(0).toUpperCase() + text.slice(1)//colocando a primeira letra da palavra em maiúsculo
+                        })
+
+                        //pegar todas as letras do element e juntar
+                        el.innerText = words.join(' ');
+                    },
+
+                    update(el){
+                        console.log('UPDATE - O elemento foi atualizado na página')
+                    },
+                    
+                    unbind(el){
+                        console.log('UNBIND - O elemento desvinculado')
+                    },
+
+                    componentUpdated(el) {
+                        console.log('COMPONENT - O componente foi atualizado')
+                    }
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
