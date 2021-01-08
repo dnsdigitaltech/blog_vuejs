@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diretivas Personalizadas Funções</title>    
+    <title>Diretivas Personalizadas Parametros</title>    
 </head>
 <body>
     <div id="diretives">       
         <h4 v-upper>{{ name }}</h4>
         <h2 v-capitalize>hello wolds {{ name }}</h2>
+        <h2 v-custom:parametro.mod1.mod2="'Informação'">{{ name }}</h2>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -28,7 +29,7 @@
             },
             //diretiva local
             directives: {
-                capitalize: {
+               /* capitalize: {
 
                     bind(el) {
                         console.log('BIND - O elemento vinculado')
@@ -59,6 +60,18 @@
                         console.log('COMPONENT - O componente foi atualizado')
                     }
                     
+                },*/
+                custom: {
+                    inserted(el, binding, vnode){
+                        console.log(el)
+                        console.log(binding)
+                        console.log(vnode)
+
+                        el.style.color = 'blue'
+                    }, update(el, binding, vnode, oldvnode) {
+                        console.log(vnode, oldvnode)
+                        el.style.textDecoration = 'underline'
+                    },
                 }
             }
         })
