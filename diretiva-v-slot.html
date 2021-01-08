@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva v-slot</title>    
+</head>
+<body>
+    <div id="diretives">       
+        <text-component>
+            <template v-slot:header>
+                <h2>
+                    esse é o cabeçalho do site
+                </h2>
+            </template>
+            <template #paragrafo>
+                texto 1
+            </template>
+            
+        </text-component>
+        <text-component>
+            texto 2
+        </text-component>
+        <text-component>
+            texto 3
+        </text-component>
+        <text-component>
+            texto 4
+        </text-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        Vue.component('text-component', {
+            template: `
+                <div>
+                    <header>
+                        <slot name="header"></slot>
+                    </header>
+                    <p>
+                        <slot name="paragrafo"></slot>
+                    </p>
+                </div>
+            `
+        })
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+                
+            }
+        })
+    </script>
+</body>
+</html>
