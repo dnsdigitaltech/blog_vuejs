@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva v-pre</title>    
+</head>
+<body>
+    <div id="diretives">       
+        <h2 v-pre>{{message}}</h2>
+        <h2 @click="alert('Hello World')" v-pre>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam maiores error deserunt quod minus. Ea deleniti totam odit beatae minima reprehenderit nobis quis! Id iusto nulla illum eos, accusamus similique!</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>       
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+                message: 'Treinamento Vue.Js'
+            }
+        })
+    </script>
+</body>
+</html>
