@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva v-model</title>    
+</head>
+<body>
+    <div id="diretives">
+        <h3 :style="{fontSize: textSize + 'px'} ">Treinamentos em VueJS</h3>
+
+        <input type="text" placeholder="Digite o tamanho do texto" v-model="textSize">
+
+        <h4 :style="{color: textColor}">Mudando a cor do texto</h4>
+        <input type="text" placeholder="Digite a cor do texto" v-model="textColor">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+                textSize: 30,
+                textColor: 'blue'
+            }
+        })
+    </script>
+</body>
+</html>
