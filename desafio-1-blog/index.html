@@ -45,7 +45,7 @@
                             <img :src="post.img" :alt="post.imgTitle">
                             <h2>{{ post.title }}</h2>
                             <p>
-                                {{ post.post }}
+                                {{ post.post | truncate(200)}}
                             </p>
 
                         </div>
@@ -63,6 +63,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
         <script>
             let app = new Vue({
                 el: '#meu-blog',
