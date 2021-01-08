@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva v-on para filtrar lista dinamicamente</title>    
+</head>
+<body>
+    <div id="diretives">
+        <p @click="reverseMessage">{{message}}</p>
+        <h4 @[eventname]="reverseMessage">{{message}}</h4>
+
+        <hr>
+
+        <input type="text" placeholder="Filtrar Pessoas" @keyup="filterPersons">
+
+        <ul>
+            <li v-for="person in personsFiltred">{{person}}</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+                message: 'Vue.Js é demais!!!!',
+                eventname: 'click',
+                persons: ['Davi Bernardo', 'Silvia dos Santos', 'Nathan Bernardo', 'Luciene Santos', 'Marcelo Silva', 'Marcelo Filho'],
+                personsFiltred: []
+            },
+            methods: {
+                reverseMessage(){
+                    this.message = this.message.split('').reverse().join('')
+                },
+                filterPersons(event){
+                    this.personsFiltred = this.persons.filter(name => {
+                        return name.toUpperCase().includes(event.target.value.toUpperCase())
+                    })
+                }
+            },
+            created() {
+                this.personsFiltred = this.persons;
+            },
+        })
+    </script>
+</body>
+</html>
