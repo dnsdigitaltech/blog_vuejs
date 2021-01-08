@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva v-for</title>    
+</head>
+<body>
+    <div id="diretives">
+        <h2>Cidades do mundo</h2>
+        <ol>
+            <li v-for="city in cities">{{city}}</li>
+        </ol>
+        <h2>Cidades do mundo com seus países</h2>
+        <ol>
+            <li v-for="item in cities2">
+                {{item.city}} - {{item.country}}
+            </li>
+        </ol>
+
+        <h2>Grande filmes da historia, tranzendo o numero da posição do array</h2>
+        <ul>
+            <li v-for="(picture, index) in movies">
+                {{index}} . {{picture}}
+            </li>
+        </ul>
+        <h2>Empresa</h2>
+
+        <p v-for="(value, key, index) in company">
+            {{key}} : {{value}}
+        </p>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+                cities: ['Nova York', 'São Paulo', 'Londres', 'Rio de Janeiro'], //array
+                cities2: [
+                    {
+                        city: 'Nova York',
+                        country: 'EUA'
+                    },
+                    {
+                        city: 'São Paulo',
+                        country: 'Brasil'
+                    },
+                    {
+                        city: 'Londres',
+                        country: 'Inglaterra'
+                    },
+                    {
+                        city: 'Rio de Janeiro',
+                        country: 'Brasil'
+                    }
+                ], //array de objeto
+                movies:['Star Wars', 'Jurassic Park', 'De volta para o futuro'],//lista de filmes   
+                company:{
+                    name: 'facebook',
+                    year: 2004,
+                    creator: 'Mark'
+                }//empresa
+            }
+        })
+    </script>
+</body>
+</html>
