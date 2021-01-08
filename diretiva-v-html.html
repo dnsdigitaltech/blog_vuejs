@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva v-html</title>    
+</head>
+<body>
+    <div id="diretives">
+
+        <div v-html="hearderHTML"></div>
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+              hearderHTML: `
+                <hearder>
+                    <h1 style="text-align:center;">Treinamento em VeuJS</h1>
+                    <img src="./assets/logo.svg" style="margin: auto 30%">
+                </header>
+              `
+            }
+        })
+    </script>
+</body>
+</html>
