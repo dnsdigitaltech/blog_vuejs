@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diretiva v-bind</title>    
+    <title>Diretiva v-bind novidades</title>    
 </head>
 <body>
     <div id="diretives">
         <h2>Acesse o site abaixo</h2>
         <a v-bind:href="url">Site da DNS DIGITAL TECH</a>
-        <a :href="url">Site da DNS DIGITAL TECH</a>
+        <p :[arg]="value">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ea accusantium hic, eos tempora recusandae perspiciatis eius, doloribus facilis quam animi ipsa illum aperiam sint totam explicabo quia fuga repellendus.</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -18,7 +18,9 @@
         let app = new Vue({
             el: '#diretives',
             data: {
-                url: 'http://dnsdigitaltech.com.br/'
+                url: 'http://dnsdigitaltech.com.br/',
+                arg: 'title',
+                value: 'Parágrafo de exemplo'
             }
         })
     </script>
