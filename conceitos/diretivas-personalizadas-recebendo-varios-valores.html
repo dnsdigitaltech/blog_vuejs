@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas Personalizadas Recebendo vários valores</title>    
+</head>
+<body>
+    <div id="diretives">       
+        <h2 v-custom="{ direction: argumento, distance }">{{ name }}</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>  
+        //Diretiva de maneira global
+        Vue.directive('upper', {
+            inserted(el) {
+                el.innerText = el.innerText.toUpperCase();
+            }
+        })
+
+        function setDirection(el, binding) {
+            el.style.margin = 0;
+           
+            let direction = binding.value.direction.toLowerCase()
+            let value = binding.value.distance
+            switch(direction){
+                case 'left':
+                case 'right':
+                case 'bottom':
+                case 'top':
+                    let newDirection = direction.charAt(0).toUpperCase() +
+                    direction.slice(1)
+
+                    eval(`el.style.margin${newDirection} = value + 'px'`)
+                break
+
+                default:
+                    console.error('Informe uma opção correta')
+            }
+        }
+
+        let app = new Vue({
+            el: '#diretives',
+            data: {
+                name: 'Vue.Js',
+                argumento: 'left',
+                distance: 150
+            },
+            //diretiva local
+            directives: {               
+                custom: {
+                    bind(el, binding, vnode){
+                        setDirection(el, binding)
+                    }, update(el, binding, vnode, oldvnode) {
+                        setDirection(el, binding)
+                    },
+                }
+            }
+        })
+    </script>
+</body>
+</html>
