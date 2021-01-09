@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
-    <title>Transação entre elementos</title> 
+    <title>Orientação da Transição</title> 
     <style>
         .fade-transition-enter-active, .fade-transition-leave-active{
             transition: opacity .3s ease-in-out;
@@ -17,9 +17,9 @@
 </head>
 <body>
     <div id="animations">   
-        <h1>Transação entre elementos</h1>
+        <h1>Orientação da Transição</h1>
         <input type="text" v-model="name">
-        <transition name="fade-transition">
+    <transition name="fade-transition" mode="out-in">
             <h3 v-if="name.length > 10" key="success" class="alert-success">Nome Válido</h3>
             <h3 v-else key="error" class="alert-danger">Nome Incorreto</h3>
         </transition>     
