@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <title>Animações CSS Duração</title> 
+      
+</head>
+<body>
+    <div id="animations">   
+        <h1>VueJs Treinamentos</h1>
+        <!-- duração fixa
+        <transition 
+            name="animation-first" 
+            enter-active-class="bounceIn" 
+            leave-active-class="bounceOut"
+            duration:800>
+                <h2  v-if="show">Galera, Bora gravar!!!</h2>
+        </transition>   
+        -->
+
+        <transition 
+            name="animation-first" 
+            enter-active-class="animated rollIn" 
+            leave-active-class="animated zoomOut"
+            duration:{enter: 800, leave: 100}>
+                <h2  v-if="show">Galera, Bora gravar!!!</h2>
+        </transition> 
+        <button @click="show = !show">Realizar animação</button>       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script> 
+        let app = new Vue({
+            el: '#animations',
+            data: {
+                show: true,
+            },   
+            methods: {
+                beforeEnter(){
+                    
+                }            
+            },            
+        })
+    </script>
+</body>
+</html>
