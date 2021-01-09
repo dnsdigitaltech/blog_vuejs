@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <title>Eventos - Event Object</title> 
+</head>
+<body>
+    <div id="events">   
+        <button v-on:click="call($event)">Clique aqui</button>
+        <hr>
+        <a href="https://www.google.com/" v-on:click="call($event)">Site google</a>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script> 
+        let app = new Vue({
+            el: '#events',
+            data: {
+                
+            },
+            methods: {
+                call(e){
+                    e.preventDefault();
+                    
+                    console.log(e)
+                }
+            },        
+        })
+    </script>
+</body>
+</html>
