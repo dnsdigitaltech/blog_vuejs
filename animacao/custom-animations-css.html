@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <title>Animações CSS Personalizadas</title> 
+      
+</head>
+<body>
+    <div id="animations">   
+        <transition 
+            enter-active-class="animated fadeInLeft"
+            leave-active-class="animated zoomOutDown">
+            <h2  v-if="show">VueJs Treinamentos</h2>
+        </transition>   
+        <button @click="show = !show">Realizar animação</button>       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script> 
+        let app = new Vue({
+            el: '#animations',
+            data: {
+                show: true,
+            },   
+                               
+        })
+    </script>
+</body>
+</html>
