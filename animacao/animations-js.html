@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <title>Animações JS</title> 
+      
+</head>
+<body>
+    <div id="animations">   
+        <transition 
+            name="animation-first"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+            @enter-cancelled="enterCancelled"
+            @before-leave="beforeLeave"
+            @leave="leave"
+            @after-leave="afterLeave"
+            @leave-cancelled="leaveCancelled"
+            >
+            <h2  v-if="show">VueJs Treinamentos</h2>
+        </transition>   
+        <button @click="show = !show">Realizar animação</button>       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script> 
+        let app = new Vue({
+            el: '#animations',
+            data: {
+                show: true,
+            },   
+            methods: {
+                beforeEnter(){
+                    console.log('beforeEnter')
+                },
+                enter(){
+                    console.log('enter')
+                },
+                afterEnter(el){
+                    console.log('afterEnter')
+                    document.querySelector('h2').style.backgroundColor = '#ccc';
+                    document.querySelector('h2').style.color = '#fff000';
+                },
+                enterCancelled(){
+                    console.log('enterCancelled')
+                },
+
+                beforeLeave(){
+                    console.log('beforeLeave')
+                },
+                leave(){
+                    console.log('leave')
+                },
+                afterLeave(){
+                    console.log('afterLeave')
+                    alert('O elemento foi oculto')
+                },
+                leaveCancelled(){
+                    console.log('leaveCancelled')
+                }
+            },            
+        })
+    </script>
+</body>
+</html>
