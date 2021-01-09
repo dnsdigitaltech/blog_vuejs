@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <title>Estilos clsses por objetos</title> 
+    <title>Estilos classes usando objetos</title> 
     <style>
         .logged{
             color: sienna;
@@ -16,7 +16,8 @@
     <div id="styles">  
         
         <h1 :class="{ logged: isLogged  }">Seja bem vindo ao sistema</h1>
-        <h3>{{ message }}</h3>
+        <hr>
+        <h3 :class="classMessage">{{ message }}</h3>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -35,6 +36,10 @@
                     }else{
                         return 'Há algo errado'
                     }*/
+                },
+                classMessage: function(){
+
+                    return (!this.error) ? 'alert-success' : 'alert-danger'
                 }
             }                   
         })
