@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
-    <title>Eventos - Modificadores de teclas do sistema</title> 
+    <title>Eventos - Modificador exact</title> 
 </head>
 <body>
     <div id="events">   
@@ -20,6 +20,21 @@
                     <input type="text" class="form-control" placeholder="Pressione Meta" @keydown.meta="exec">
                 </div>
            </form>
+           <hr>
+           <div class="row">
+                <div class="col" @click.ctrl.exact="toggleClass">
+                        1
+                </div>
+                <div class="col" @click.ctrl.exact="toggleClass">
+                        2
+                </div>
+                <div class="col" @click.ctrl.exact="toggleClass">
+                        3
+                </div>
+                <div class="col" @click.ctrl.exact="toggleClass">
+                        4
+                </div>
+            </div>
        </div>
     </div>
     
@@ -34,6 +49,29 @@
             methods: {
                 exec(e){
                     console.log(e.key)
+                },
+                toggleClass(){
+                    let el = event.target
+                    //let isClass = el.classList.contains('bg-info')
+
+                    /*let method
+
+                    if(isClass) {
+                        method = 'remove'
+                    }else{
+                        method = 'add'
+                    }*/
+
+                    let method = (el.classList.contains('bg-info')) ? 'remove' : 'add'
+
+                    eval(`el.classList.${method}('bg-info')`)
+
+                    /*if(isClass) {
+                        el.classList.remove('bg-info') 
+                    }else{
+                        el.classList.add('bg-info') 
+                    }*/
+                                       
                 }
             },        
         })
