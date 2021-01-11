@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <title>Eventos - Multiplos</title> 
+</head>
+<body>
+    <div id="events">   
+       <div class="container">
+           <h1>VueJs Treinamentos</h1>
+           <div :style="{ backgroundColor: background, width: '200px', height: '200px' }" v-on="{ mouseenter:changeColor, mouseout:changeColor }">
+               
+           </div>
+       </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script> 
+        let app = new Vue({
+            el: '#events',
+            data: {
+                background: 'blue'
+            },
+            methods: {
+                changeColor() {
+                    let backgroundColor = (this.background == 'blue') ? '#999' : 'blue'
+                    this.background = backgroundColor
+                }
+            },        
+        })
+    </script>
+</body>
+</html>
