@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componente Global</title>
+</head>
+<body>
+    <div id="components">
+        <div class="container">
+            <text-render text="VueJS Treinamentos"></text-render>
+            <text-render text="Sejam Bem vindos"></text-render>
+            <text-render text="Olá Mundo"></text-render>
+            <hr>
+            <list-component></list-component>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+        Vue.component('text-render', {
+            props: ['text'],
+            template: `
+                <div>
+                    <h4> {{ text }}</h4>
+                </div>
+            `
+        })
+        Vue.component('list-component', {
+            template: `
+                <ul>
+                    <li v-for="person in names">{{ person }}</li>
+                </ul>
+            `,
+            data: function() {
+                return {
+                    names: ['João Paulo', 'Avelina Maria', 'José Carlos', 'José Mineiro']
+                }
+            }
+        })
+        let app = new Vue({
+            el: '#components',
+            data: {
+
+            }
+        })
+    </script>
+</body>
+</html>
