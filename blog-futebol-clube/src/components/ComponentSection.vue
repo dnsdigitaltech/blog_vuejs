@@ -1,7 +1,12 @@
-<template>
+<template>    
     <div>
+        <div class="container">
+            <div class="row mt-5">
+                <h3>Você está vendo as nostícias do: {{ championship }}</h3>
+            </div>
+        </div>
         <ComponentSectionBanner/>
-        <ComponentSectionNews />
+        <ComponentSectionNews/>
     </div>
 </template>
 
@@ -12,6 +17,9 @@
         components: {
             ComponentSectionBanner,
             ComponentSectionNews
+        },
+        props: {
+            championship: String
         }
     }
 </script>

@@ -1,9 +1,32 @@
 <template>
-    <section class="container">
-        <ComponentSectionNewsIndividual/>
-    </section>
-</template>
+    <section>
+         <div class="container">
+            <ComponentSectionNewsIndividual
+                img-name="news1.jpg"
+                img-info="Notícia 1"
+                news-title="Começam os treinos para nova temporada"
+                news-content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus fugiat minima minus laboriosam sequi iste eius quae maiores obcaecati exercitationem aperiam voluptatibus dicta accusamus, necessitatibus, ipsa quaerat eveniet? Sequi, cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, eos dolores! Inventore ipsum saepe commodi nihil voluptas repellat veniam quod animi praesentium tenetur iste accusantium, vel nesciunt accusamus porro minima."
+                news-date="20/02/2021"
+            /> 
 
+            <ComponentSectionNewsIndividual
+                img-name="news2.jpg"
+                img-info="Notícia 1"
+                news-title="Começam os treinos para nova temporada"
+                news-content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus fugiat minima minus laboriosam sequi iste eius quae maiores obcaecati exercitationem aperiam voluptatibus dicta accusamus, necessitatibus, ipsa quaerat eveniet? Sequi, cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, eos dolores! Inventore ipsum saepe commodi nihil voluptas repellat veniam quod animi praesentium tenetur iste accusantium, vel nesciunt accusamus porro minima."
+                news-date="20/02/2021"
+            /> 
+
+            <ComponentSectionNewsIndividual
+                img-name="news3.jpg"
+                img-info="Notícia 1"
+                news-title="Começam os treinos para nova temporada"
+                news-content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus fugiat minima minus laboriosam sequi iste eius quae maiores obcaecati exercitationem aperiam voluptatibus dicta accusamus, necessitatibus, ipsa quaerat eveniet? Sequi, cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, eos dolores! Inventore ipsum saepe commodi nihil voluptas repellat veniam quod animi praesentium tenetur iste accusantium, vel nesciunt accusamus porro minima."
+                news-date="20/02/2021"
+            />            
+         </div>
+     </section>
+</template>
 
 <script>
     import ComponentSectionNewsIndividual from './ComponentSectionNewsIndividual'
@@ -14,32 +37,10 @@
     }
 </script>
 
-
 <style scoped>
     section {
+        padding: 50px 0;
         margin-top: 25px;
-    }
-    .container .row {
-        height: 300px;
-    }
-    .container .row .col-5:first-child {
-        background-color: rgba(0, 0, 0. 0.5);
-        background-image: url('../assets/football.jpg');
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-    .container .row .col-5:nth-child(2) {
-        background-image: url('../assets/football2.jpg');
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-    h2 {
-        margin: 25% 0;
-        color: #f6b64e;
-        background-color: rgba(0, 0, 0, 0.4);
-        padding: 10px;
-    }
-    .principal-news {
-        cursor: pointer;
+        background-color: #f37520;
     }
 </style>

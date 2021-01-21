@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <component-header/>
-    <component-section/>
-    <component-footer/>
+    <component-header @select-championship="changeChampionship" />
+    <component-section :championship="championship" />
+    <component-footer />
   </div>
 </template>
 
@@ -16,7 +16,18 @@ export default {
     ComponentHeader,
     ComponentFooter,
     ComponentSection
-  }
+  },
+  //selected options per sectios
+  data() {
+    return {
+      championship: 'Campeonato Brasileiro'
+    }
+  },
+  methods: {
+    changeChampionship(value){
+      this.championship = value;
+    }
+  },
 }
 </script>
 
