@@ -6,17 +6,38 @@
             </div>
         </div>
         <ComponentSectionBanner/>
-        <ComponentSectionNews/>
+        <ComponentSectionNews/>        
+
+        <div class="container">
+            <div class="row my-club mt-5">
+                <div class="col-6">
+                    <h2>
+                        Seu Clube é: {{ myClub }}
+                    </h2>
+                </div>
+                <div class="col-6">
+                    <ComponentInput v-model="myClub"/>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
     import ComponentSectionBanner from './ComponentSectionBanner'
     import ComponentSectionNews from './ComponentSectionNews'
+    import ComponentInput from './ComponentInput'
     export default {
         components: {
             ComponentSectionBanner,
-            ComponentSectionNews
+            ComponentSectionNews,
+            ComponentInput
+        },
+        data() {
+            return {
+                myClub: 'Vue Js Treinamentos'
+            }
         },
         props: {
             championship: String
