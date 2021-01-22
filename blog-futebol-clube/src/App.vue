@@ -16,7 +16,7 @@
 import ComponentHeader from "./components/ComponentHeader";
 import ComponentFooter from "./components/ComponentFooter";
 import ComponentSection from "./components/ComponentSection";
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "App",
   components: {
@@ -31,11 +31,9 @@ export default {
     };
   },
   methods: {
-    ...mapMutations({
-      changeChampionship: "setChampionship",
-    }),
-    /*changeChampionship(value) {
-      this.$store.commit("setChampionship", value);
+    ...mapActions(["changeChampionship"]),
+    /*changeChampionship: function (value) {
+      this.$store.dispatch("changeChampionship", value);
     },*/
     changeComponent(value) {
       let component;
