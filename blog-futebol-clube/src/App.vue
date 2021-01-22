@@ -4,10 +4,7 @@
       @select-championship="changeChampionship"
       @change-component="changeComponent"
     />
-    <ComponentSection
-      :championship="championship"
-      :current-component="currentSectionComponent"
-    />
+    <ComponentSection :current-component="currentSectionComponent" />
     <ComponentFooter />
   </div>
 </template>

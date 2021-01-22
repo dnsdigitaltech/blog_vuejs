@@ -51,11 +51,17 @@ export default new Vuex.Store({
     mutations: {
         setChampionship(state, newValue) {
             state.championship = newValue
+        },
+        setClubName(state, newName) {
+            state.clubName = newName
         }
     },
     actions: {
         changeChampionship(context, value) {
             context.commit('setChampionship', value)
+        },
+        updateClubName(context, value) {
+            context.commit('setClubName', value)
         }
     }
 })
