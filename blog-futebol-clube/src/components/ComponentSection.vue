@@ -5,8 +5,7 @@
         <h3>Você está vendo as nostícias do: {{ championship }}</h3>
       </div>
     </div>
-
-    <component :is="currentComponent"></component>
+    <router-view> </router-view>
 
     <div class="container">
       <div class="row my-club mt-5">
@@ -22,13 +21,10 @@
 </template>
 
 <script>
-import ComponentSectionBanner from "./ComponentSectionBanner";
 import ComponentInput from "./ComponentInput";
 import { mapGetters } from "vuex";
 export default {
   components: {
-    ComponentSectionBanner,
-    ComponentSectionNews: () => import("./ComponentSectionNews"),
     ComponentInput,
   },
   data() {

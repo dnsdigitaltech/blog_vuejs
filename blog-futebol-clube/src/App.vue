@@ -4,7 +4,7 @@
       @select-championship="changeChampionship"
       @change-component="changeComponent"
     />
-    <ComponentSection :current-component="currentSectionComponent" />
+    <ComponentSection />
     <ComponentFooter />
   </div>
 </template>
@@ -23,9 +23,7 @@ export default {
   },
   //selected options per sectios
   data() {
-    return {
-      currentSectionComponent: "ComponentSectionBanner",
-    };
+    return {};
   },
   methods: {
     ...mapActions(["changeChampionship"]),
