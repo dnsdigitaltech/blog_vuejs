@@ -23,12 +23,11 @@
 
 <script>
 import ComponentSectionBanner from "./ComponentSectionBanner";
-import ComponentSectionNews from "./ComponentSectionNews";
 import ComponentInput from "./ComponentInput";
 export default {
   components: {
     ComponentSectionBanner,
-    ComponentSectionNews,
+    ComponentSectionNews: () => import("./ComponentSectionNews"),
     ComponentInput,
   },
   data() {
