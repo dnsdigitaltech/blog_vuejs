@@ -26,7 +26,6 @@ export default {
   //selected options per sectios
   data() {
     return {
-      championship: "Campeonato Brasileiro",
       currentSectionComponent: "ComponentSectionBanner",
     };
   },

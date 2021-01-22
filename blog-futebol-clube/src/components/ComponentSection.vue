@@ -24,6 +24,7 @@
 <script>
 import ComponentSectionBanner from "./ComponentSectionBanner";
 import ComponentInput from "./ComponentInput";
+import { mapState } from "vuex";
 export default {
   components: {
     ComponentSectionBanner,
@@ -31,13 +32,16 @@ export default {
     ComponentInput,
   },
   data() {
-    return {
-      myClub: "Vue Js Treinamentos",
-    };
+    return {};
   },
   props: {
-    championship: String,
     currentComponent: String,
+  },
+  computed: {
+    ...mapState(["championship"]),
+    ...mapState({
+      myClub: "clubName",
+    }),
   },
 };
 </script>
