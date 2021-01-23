@@ -8,7 +8,17 @@ import App from './App.vue'
 
 Vue.use(Vue2Filters)
 Vue.config.productionTip = false
+/* Globa Guards -> Realiza uma verificação de todas as rotas da aplicação
+router.beforeEach((to, from, next) => {
+  console.log(to, from)
 
+  next()
+})
+
+router.afterEach(() => {
+  console.log('Renderização ok')
+})
+*/
 new Vue({
   render: h => h(App),
   store,
