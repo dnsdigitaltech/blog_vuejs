@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from './../components/ComponentSectionBanner'
 import News from './../components/ComponentSectionNews'
 import Notice from './../components/ComponentSectionNewsNotice'
+import Component404 from './../components/Component404'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,10 @@ export default new VueRouter ({
         {
             path: '/admin',
             redirect: '/'
+        },
+        {
+            path: '*',
+            component: Component404
         }
     ]
 })
